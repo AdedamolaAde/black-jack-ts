@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleek Blackjack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Blackjack</h1>
+            <div class="stats">
+                <p>Balance: <span id="balance-display">$100</span></p>
+                <p>Current Bet: <span id="bet-display">$0</span></p>
+            </div>
+        </header>
+
+        <div id="game-message" class="message">Place your bet to start the game!</div>
+
+        <div class="table">
+            <div class="hand-section">
+                <h2>Dealer's Hand <span id="dealer-score" class="score"></span></h2>
+                <div id="dealer-cards" class="card-container"></div>
+            </div>
+
+            <div class="hand-section">
+                <h2>Your Hand <span id="player-score" class="score"></span></h2>
+                <div id="player-cards" class="card-container"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div id="betting-controls" class="control-group">
+                <input type="number" id="bet-input" min="1" value="10" placeholder="Bet amount">
+                <button id="deal-btn" class="btn btn-primary">Place Bet & Deal</button>
+            </div>
+
+            <div id="action-controls" class="control-group hidden">
+                <button id="hit-btn" class="btn btn-success">Hit</button>
+                <button id="stand-btn" class="btn btn-danger">Stand</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
