@@ -1,14 +1,4 @@
 import { ICard } from "./types";
-import promptSync from "prompt-sync";
-const prompt = promptSync();
-
-export function getDecision(): "hit" | "stand" {
-    while (true){
-        const decision = prompt("Do you want to hit or stand?: ").toLowerCase();
-        if (decision === "stand"  ||  decision === "hit")
-            return decision;
-    }
-}
 
 export function getHandValue(cards: ICard[]): number {
     let value = 0;
@@ -17,7 +7,6 @@ export function getHandValue(cards: ICard[]): number {
     for (const card of cards){
         if(card.value === 1){
             aces++
-
             continue
         }
         value += Math.min(card.value, 10);
@@ -36,21 +25,6 @@ export function shuffleArray<T>(array: T[]){
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
-}
-
-export function getBet(balance: number): number{
-    while (true){
-        const bet = prompt("Enter your bet: ");
-        try {
-            const numBet = Number(bet);
-            if (numBet > 0 && numBet <= balance){
-                return numBet;
-            }
-        } 
-        catch {
-            console.log("Please enter a valid number. ");
-        }
-    }
 }
 
 export function getStrHand(hand: ICard[], hideSecondCard: boolean = false): string{
